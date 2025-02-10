@@ -23,7 +23,7 @@ class MovieViewModel(repository: MovieRepository) : ViewModel() {
 
 
     // The Online Movies
-    var moviesFromApi by mutableStateOf<List<Movie>>(emptyList())
+    private var moviesFromApi by mutableStateOf<List<Movie>>(emptyList())
         private set
 
     // View Model Scope: Launch a coroutine in the scope of ViewModel,
@@ -34,7 +34,7 @@ class MovieViewModel(repository: MovieRepository) : ViewModel() {
         viewModelScope.launch {
 
             try {
-                moviesFromApi = repository.getPopularMoviesFromOnlineApi("key88hdskfjds")
+                moviesFromApi = repository.getPopularMoviesFromOnlineApi("ea797609e7eeccca4580a126a61d97c4")
 
                 // Assigning 'movies' to MoviesFromApi
                 movies = moviesFromApi
