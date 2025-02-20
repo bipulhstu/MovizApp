@@ -71,7 +71,8 @@ dependencies {
     implementation(libs.androidx.room.ktx)
 
     //Coil
-    implementation(libs.coil.compose)
+    //implementation(libs.coil.compose)
+    implementation(libs.coil.kt.coil.compose)
 
     //Compose
     implementation (libs.androidx.lifecycle.viewmodel.compose)

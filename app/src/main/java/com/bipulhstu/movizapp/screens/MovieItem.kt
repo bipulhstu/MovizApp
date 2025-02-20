@@ -3,6 +3,7 @@ package com.bipulhstu.movizapp.screens
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -11,10 +12,10 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
+import coil.compose.AsyncImage
 import com.bipulhstu.movizapp.retrofit.Movie
 import com.bipulhstu.movizapp.ui.theme.MovizAppTheme
 
@@ -24,13 +25,24 @@ fun MovieItem(movie: Movie){
     Card (elevation = CardDefaults.cardElevation(8.dp),
         modifier = Modifier.padding(12.dp)
             .fillMaxWidth()
+            .fillMaxSize()
         ) {
 
         Row (modifier = Modifier.padding(8.dp)){
             AsyncImage(
-                model = "https://image.tmdb.org/t/p/w500${movie.poster_path}",
+                model = "https://image.tmdb.org/t/p/w500"+movie.poster_path,
                 contentDescription = "Movie Image"
             )
+            /*AsyncImage(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data("https://image.tmdb.org/t/p/w500/d8Ryb8AunYAuycVKDp5HpdWPKgC.jpg")
+                    .crossfade(true)
+                    .build(),
+                placeholder = painterResource(R.drawable.download),
+                contentDescription = "Movie Image",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.clip(CircleShape),
+            )*/
 
 
             Spacer(modifier = Modifier.width(8.dp))
